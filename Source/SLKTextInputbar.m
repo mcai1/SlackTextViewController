@@ -121,6 +121,12 @@ NSString * const SLKTextInputbarDidMoveNotification =   @"SLKTextInputbarDidMove
     [super layoutIfNeeded];
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self bringSubviewToFront:self.textView];
+    [self bringSubviewToFront:self.rightButton];
+}
+
 - (CGSize)intrinsicContentSize
 {
     return CGSizeMake(UIViewNoIntrinsicMetric, [self minimumInputbarHeight]);
